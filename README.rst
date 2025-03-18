@@ -1,5 +1,5 @@
-##################
-ctrl_platform_s3df
-##################
+###################
+ctrl_platform_slurm
+###################
 
-This package contains S3DF (SLAC) platform configuration and template files for `lsst.ctrl.execute`.
+This package contains generic Slurm platform configuration and template files for `lsst.ctrl.execute`.

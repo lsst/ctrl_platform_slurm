@@ -8,7 +8,7 @@ https://developer.lsst.io/stack/building-single-package-docs.html
 from documenteer.conf.pipelinespkg import *
 
 
-project = "ctrl_platform_s3df"
+project = "ctrl_platform_slurm"
 html_theme_options["logotext"] = project
 html_title = project
 html_short_title = project

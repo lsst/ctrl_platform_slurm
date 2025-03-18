@@ -6,21 +6,14 @@ CCB_HEARTBEAT_INTERVAL = 90
 # IDTOKENS
 # use security:get_htcondor_idtokens
 use security:recommended_v9_0
-SEC_DEFAULT_AUTHENTICATION_METHODS = FS_REMOTE, IDTOKENS, FS
-SEC_READ_AUTHENTICATION_METHODS = FS_REMOTE, IDTOKENS, FS
-# FS_REMOTE_DIR = /sdf/home/d/daues/condor-authenticate
-FS_REMOTE_DIR = /sdf/group/rubin/services/htcondor/shared
-
-SEC_TOKEN_DIRECTORY=$USERHOME/condor/tokens.d/
-SEC_PASSWORD_DIRECTORY=$USERHOME/condor/passwords.d/
-SEC_TOKEN_POOL_SIGNING_KEY_FILE=$USERHOME/condor/passwords.d/s3df_token_key
+SEC_DEFAULT_AUTHENTICATION_METHODS = FS_REMOTE, FS
+SEC_READ_AUTHENTICATION_METHODS = FS_REMOTE, FS
+FS_REMOTE_DIR = /scratch/gpfs/LSST/.condor
 
 ALLOW_READ = *
 ALLOW_WRITE = *
 ALLOW_DAEMON = *
-ALLOW_ADMINISTRATOR = $USER_NAME@sdfmilan*.sdf.slac.stanford.edu/sdfiana012.sdf.slac.stanford.edu
-ALLOW_ADMINISTRATOR = $(ALLOW_ADMINISTRATOR), $USER_NAME@sdfmilan*.sdf.slac.stanford.edu/sdfiana013.sdf.slac.stanford.edu
-ALLOW_ADMINISTRATOR = $(ALLOW_ADMINISTRATOR), $USER_NAME@sdfmilan*.sdf.slac.stanford.edu/sdfiana014.sdf.slac.stanford.edu
+ALLOW_ADMINISTRATOR = $USER_NAME@tiger-g*.princeton.edu/tiger3-sumire.princeton.edu
 
 use role:execute
 
