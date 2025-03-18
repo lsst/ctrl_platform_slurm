@@ -1,0 +1,5 @@
+lsst/ctrl/platform/slurm/__init__.py,,
+lsst/ctrl/platform/slurm/version.py,,
+lsst_ctrl_platform_slurm.dist-info/INSTALLER,,
+lsst_ctrl_platform_slurm.dist-info/METADATA,,
+lsst_ctrl_platform_slurm.dist-info/RECORD,,
