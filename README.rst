@@ -2,6 +2,4 @@
 ctrl_platform_slurm
 ###################
 
-``ctrl_platform_slurm`` is a package in the `LSST Science Pipelines <https://pipelines.lsst.io>`_.
-
-.. Add a brief (few sentence) description of what this package provides.
+This package contains generic Slurm platform configuration and template files for `lsst.ctrl.execute`.

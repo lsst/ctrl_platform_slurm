@@ -1,0 +1,39 @@
+
+MAX_FILE_DESCRIPTORS = $OPEN_FILES
+
+CCB_HEARTBEAT_INTERVAL = 90
+
+# IDTOKENS
+# use security:get_htcondor_idtokens
+use security:recommended_v9_0
+SEC_DEFAULT_AUTHENTICATION_METHODS = FS_REMOTE, FS
+SEC_READ_AUTHENTICATION_METHODS = FS_REMOTE, FS
+FS_REMOTE_DIR = /scratch/gpfs/LSST/.condor
+
+ALLOW_READ = *
+ALLOW_WRITE = *
+ALLOW_DAEMON = *
+ALLOW_ADMINISTRATOR = $USER_NAME@tiger-g*.princeton.edu/tiger3-sumire.princeton.edu
+
+use role:execute
+
+AUTO_INCLUDE_SHARED_PORT_IN_DAEMON_LIST=False
+USE_SHARED_PORT=False
+
+# START = ( (Owner == "$USER_NAME") && (JOB_NODE_SET ==  "$NODE_SET" ) )
+# START = (Owner == "$USER_NAME")
+
+$DYNAMIC_SLOTS_BLOCK
+
+$PACK_BLOCK
+
+STARTD_NOCLAIM_SHUTDOWN=$GLIDEIN_SHUTDOWN
+
+STARTD_ATTRS = ALLOCATED_NODE_SET
+
+# hold jobs that the startd detects have exceeded assigned memory
+MEMORY_EXCEEDED = ((MemoryUsage > Memory) =!= TRUE)
+WANT_HOLD = $(MEMORY_EXCEEDED)
+WANT_HOLD_REASON = ifThenElse( $(MEMORY_EXCEEDED), \
+               "Your job used too much virtual memory.", \
+               undefined )
